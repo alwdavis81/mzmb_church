@@ -46,6 +46,12 @@ body {
     background-color: var(--color-background);
     color: var(--color-text-main);
     line-height: 1.6;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+html {
+    overflow-x: hidden;
 }
 
 h1,
