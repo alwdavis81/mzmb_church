@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - Mt. Zion MBC</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .history-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .history-text p {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Mt. Zion MBC</a>
+            <button class="nav-toggle">☰</button>
+            <ul class="nav-links">
+                <!-- Links Centered -->
+                <li class="mobile-only"><a href="giving.html"
+                        style="font-weight:bold; color:var(--color-secondary);">Prayer & Giving</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="history.html" class="active">History</a></li>
+                <li><a href="events.html">Events & Schedule</a></li>
+                <li><a href="editorial.html">Pastor's Editorial</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+            <a href="giving.html" class="btn btn-primary nav-btn desktop-only">Prayer & Giving</a>
+        </div>
+    </nav>
+
+    <header class="page-header text-center">
+        <div class="container">
+            <h1>Our History</h1>
+            <p>Faithfully serving our community since 1925.</p>
+        </div>
+    </header>
+
+    <main class="container section">
+        <article class="history-text">
+            <h3>In the Beginning</h3>
+            <p>Mt. Zion Missionary Baptist Church was founded in 1925 by a small group of faithful believers... [Insert
+                historical narrative here]</p>
+
+            <h3>Growth and Expansion</h3>
+            <p>Throughout the decades, the church has grown not just in numbers but in spirit. In the 1960s, under the
+                leadership of Reverend Jones, the current sanctuary was built...</p>
+
+            <h3>Today</h3>
+            <p>Today, we stand on the shoulders of giants, continuing the legacy of faith, hope, and charity. We remain
+                committed to being a beacon of light in our city.</p>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; <span id="current-year"></span> Mt. Zion MBC.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

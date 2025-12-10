@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer & Giving - Mt. Zion MBC</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        @media(max-width: 768px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .giving-options {
+            background: var(--color-background);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .giving-method {
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Mt. Zion MBC</a>
+            <button class="nav-toggle">☰</button>
+            <ul class="nav-links">
+                <!-- Links Centered -->
+                <li class="mobile-only"><a href="giving.html"
+                        style="font-weight:bold; color:var(--color-secondary);">Prayer & Giving</a></li>
+                <!-- Links Centered -->
+                <li class="mobile-only"><a href="giving.html"
+                        style="font-weight:bold; color:var(--color-secondary);">Prayer & Giving</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="events.html">Events & Schedule</a></li>
+                <li><a href="editorial.html">Pastor's Editorial</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="giving.html" class="active">Prayer & Giving</a></li>
+            </ul>
+            <a href="giving.html" class="btn btn-primary nav-btn desktop-only">Prayer & Giving</a>
+        </div>
+    </nav>
+
+    <header class="page-header text-center">
+        <div class="container">
+            <h1>Support & Prayer</h1>
+            <p>"Give, and it will be given to you." - Luke 6:38</p>
+        </div>
+    </header>
+
+    <main class="container section">
+        <div class="split-layout">
+            <!-- Prayer Request Form -->
+            <section>
+                <h2>Prayer Request</h2>
+                <p style="margin-bottom: 2rem;">How can we pray for you? Your request will be shared with our prayer
+                    team.</p>
+                <form action="#" method="POST"> <!-- Placeholder action -->
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name (Optional)</label>
+                        <input type="text" id="name" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email (Optional)</label>
+                        <input type="email" id="email" class="form-control" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="request" class="form-label">Prayer Request</label>
+                        <textarea id="request" class="form-control" rows="5"
+                            placeholder="Type your prayer request here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Request</button>
+                </form>
+            </section>
+
+            <!-- Giving Section -->
+            <section>
+                <h2>Ways to Give</h2>
+                <p style="margin-bottom: 2rem;">Your tithes and offerings support the ministry and mission of Mt. Zion.
+                </p>
+
+                <div class="giving-options">
+                    <div class="giving-method">
+                        <strong>Online Giving</strong><br>
+                        (Secure platform placeholder)
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-bottom: 2rem;">Give Now</button>
+
+                    <h3>Other Ways to Give</h3>
+                    <ul style="text-align: left; margin-top: 1rem; list-style: disc; padding-left: 1.5rem;">
+                        <li><strong>In Person:</strong> During Sunday Worship service.</li>
+                        <li><strong>By Mail:</strong><br>Mt. Zion MBC<br>12741 E Rd<br>Burt, MI 48417</li>
+                        <li><strong>Mobile App:</strong> CashApp: $MtZionPlaceholder</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; <span id="current-year"></span> Mt. Zion MBC.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

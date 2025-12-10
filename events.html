@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Schedule - Mt. Zion MBC</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .schedule-item {
+            background: white;
+            padding: 1.5rem;
+            border-left: 5px solid var(--color-secondary);
+            box-shadow: var(--shadow-card);
+        }
+
+        .schedule-time {
+            font-weight: bold;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-list {
+            margin-top: 3rem;
+        }
+
+        .calendar-item {
+            display: flex;
+            gap: 1.5rem;
+            border-bottom: 1px solid #ddd;
+            padding: 1.5rem 0;
+            align-items: start;
+        }
+
+        .date-box {
+            background: var(--color-background);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            min-width: 80px;
+        }
+
+        .date-box .day {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .date-box .month {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        @media(max-width: 600px) {
+            .calendar-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .date-box {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Mt. Zion MBC</a>
+            <button class="nav-toggle">☰</button>
+            <ul class="nav-links">
+                <!-- Links Centered -->
+                <li class="mobile-only"><a href="giving.html"
+                        style="font-weight:bold; color:var(--color-secondary);">Prayer & Giving</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="events.html" class="active">Events & Schedule</a></li>
+                <li><a href="editorial.html">Pastor's Editorial</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+            <a href="giving.html" class="btn btn-primary nav-btn desktop-only">Prayer & Giving</a>
+        </div>
+    </nav>
+
+    <header class="page-header text-center">
+        <div class="container">
+            <h1>Events & Schedule</h1>
+            <p>Join us in fellowship and worship.</p>
+        </div>
+    </header>
+
+    <main class="container section">
+        <!-- Recurring Weekly Schedule -->
+        <h2>Weekly Schedule</h2>
+        <div class="schedule-grid">
+            <div class="schedule-item">
+                <h3>Sundays</h3>
+                <span class="schedule-time">9:30 AM - Sunday School</span>
+                <span class="schedule-time">11:00 AM - Morning Worship</span>
+            </div>
+            <div class="schedule-item">
+                <h3>Wednesdays</h3>
+                <span class="schedule-time">6:00 PM - Intercessory Prayer</span>
+                <span class="schedule-time">7:00 PM - Bible Study</span>
+            </div>
+            <div class="schedule-item">
+                <h3>Thursdays</h3>
+                <span class="schedule-time">6:30 PM - Choir Rehearsal</span>
+            </div>
+            <div class="schedule-item">
+                <h3>Monthly</h3>
+                <span class="schedule-time">1st Sat - Men's Fellowship (9 AM)</span>
+                <span class="schedule-time">2nd Sat - Women's Ministry (10 AM)</span>
+            </div>
+        </div>
+
+        <!-- Upcoming Events List -->
+        <h2 style="margin-top: 4rem;">Upcoming Events</h2>
+        <div class="calendar-list">
+            <article class="calendar-item">
+                <div class="date-box">
+                    <span class="day">15</span>
+                    <span class="month">Oct</span>
+                </div>
+                <div class="content">
+                    <h3>Fall Harvest Festival</h3>
+                    <p>A time of food, fun, and games for the whole community. Bring your neighbors!</p>
+                </div>
+            </article>
+            <article class="calendar-item">
+                <div class="date-box">
+                    <span class="day">12</span>
+                    <span class="month">Nov</span>
+                </div>
+                <div class="content">
+                    <h3>Church Anniversary Banquet</h3>
+                    <p>Celebrating 98 years of God's faithfulness. Tickets available at the clerk's office.</p>
+                </div>
+            </article>
+            <article class="calendar-item">
+                <div class="date-box">
+                    <span class="day">24</span>
+                    <span class="month">Dec</span>
+                </div>
+                <div class="content">
+                    <h3>Christmas Eve Candlelight Service</h3>
+                    <p>Reflecting on the birth of our Savior. 6:00 PM.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; <span id="current-year"></span> Mt. Zion MBC.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

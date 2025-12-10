@@ -1,0 +1,493 @@
+/* Global Variables & Theme */
+:root {
+    /* Color Palette - Warm & Authentic */
+    --color-primary: #8B4513;
+    /* SaddleBrown - Earthy, warm */
+    --color-secondary: #D2691E;
+    /* Chocolate/Terracotta */
+    --color-accent: #DAA520;
+    /* GoldenRod - Welcoming highlight */
+    --color-background: #FDF5E6;
+    /* OldLace - Warm cream background */
+    --color-surface: #FFFFFF;
+    /* Pure white for cards to pop against cream */
+    --color-text-main: #2F2F2F;
+    /* Soft charcoal for high contrast without harshness */
+    --color-text-muted: #5F5F5F;
+    --color-border: #E0C097;
+
+    /* Typography */
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+
+    /* Shadows & Radius */
+    --shadow-card: 0 4px 6px rgba(139, 69, 19, 0.1);
+    --shadow-hover: 0 10px 15px rgba(139, 69, 19, 0.15);
+    --radius-md: 8px;
+    --radius-lg: 16px;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text-main);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+    color: white;
+    /* Ensure text remains visible */
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: var(--spacing-sm) 0;
+}
+
+.nav-container {
+    /* Override standard container to use more width for header */
+    max-width: 95%;
+    /* Push logo and button further out */
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    /* SYMMETRY: Left (Logo), Center (Nav), Right (Button) */
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    justify-self: start;
+    /* Push to far left */
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    /* Increased from 2rem for better separation */
+    justify-self: center;
+    /* Push to center */
+}
+
+.nav-btn.desktop-only {
+    justify-self: end;
+    /* Push to far right */
+}
+
+.nav-toggle {
+    display: none;
+}
+
+/* Mobile Nav Structure */
+@media (max-width: 900px) {
+
+    /* Increased break point for better safety */
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-links,
+    .nav-btn.desktop-only {
+        display: none;
+        /* Hide standard nav and button on mobile */
+    }
+
+    .nav-toggle {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    /* Mobile Menu Dropdown */
+    .nav-links.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-surface);
+        flex-direction: column;
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-card);
+        text-align: center;
+        z-index: 999;
+    }
+
+    /* Re-add button inside mobile menu via JS or just simple link? 
+       Actually, since I removed the button from the list in HTML, 
+       I need to ensure the mobile menu still has a way to get to Giving.
+       I will handle this by adding a specific mobile-only link in the HTML or 
+       just accepting that 'desktop-only' hides it and I need to add it back 
+       to the list for mobile only. 
+       
+       Better approach: I removed it from the UL in the batch script. 
+       I should add a "Giving" link back to the list that is MOBILE ONLY? 
+       Or just keep it simple.
+    */
+}
+
+
+/* ... (Previous Styles) ... */
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    background-image: url('assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(60, 30, 0, 0.7));
+    /* Warm dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-md);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: white;
+    /* Override default heading color for hero */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: var(--spacing-xs);
+}
+
+.mission-statement {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: var(--font-heading);
+    /* Serif for mission */
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-outline-light {
+    border: 2px solid white;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: var(--color-primary);
+}
+
+/* Sections General */
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-welcome {
+    background-color: var(--color-background);
+}
+
+.lead-text {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Services Grid */
+.section-services {
+    background-color: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.service-card {
+    background: var(--color-background);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.service-card.highlight {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+
+.service-card.highlight h3,
+.service-card.highlight .time,
+.service-card.highlight .details {
+    color: white;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.service-card .time {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Events Preview */
+.section-events-preview {
+    background-color: var(--color-background);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.link-arrow {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.event-card {
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.event-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-details {
+    padding: var(--spacing-md);
+}
+
+.event-date {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    background-color: #2F2F2F;
+    /* Dark charcoal */
+    color: #E0C097;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer h4 {
+    color: white;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer a {
+    color: #E0C097;
+}
+
+.footer a:hover {
+    color: var(--color-accent);
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: var(--spacing-md);
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Utility for mobile menu items */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .mobile-only {
+        display: block;
+    }
+}

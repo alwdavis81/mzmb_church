@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastor's Editorial - Mt. Zion MBC</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .editorial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            margin-top: -3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            z-index: 10;
+        }
+
+        .meta {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .pastor-sig {
+            margin-top: 3rem;
+            font-weight: bold;
+            font-family: var(--font-heading);
+            text-align: right;
+        }
+
+        @media(max-width: 600px) {
+            .editorial-content {
+                padding: 1.5rem;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Mt. Zion MBC</a>
+            <button class="nav-toggle">☰</button>
+            <ul class="nav-links">
+                <!-- Links Centered -->
+                <li class="mobile-only"><a href="giving.html"
+                        style="font-weight:bold; color:var(--color-secondary);">Prayer & Giving</a></li>
+                <!-- Links Centered -->
+                <li class="mobile-only"><a href="giving.html"
+                        style="font-weight:bold; color:var(--color-secondary);">Prayer & Giving</a></li>
+                <li class="mobile-only"><a href="giving.html"
+                        style="font-weight:bold; color:var(--color-secondary);">Prayer & Giving</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="events.html">Events & Schedule</a></li>
+                <li><a href="editorial.html" class="active">Pastor's Editorial</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+            <a href="giving.html" class="btn btn-primary nav-btn desktop-only">Prayer & Giving</a>
+        </div>
+    </nav>
+
+    <header class="page-header text-center">
+        <div class="container">
+            <h1>From the Pastor's Desk</h1>
+            <p>Monthly Words of Encouragement & Vision</p>
+        </div>
+    </header>
+
+    <main class="container section">
+        <article class="editorial-content">
+            <h2>Walking in Faith During Changing Times</h2>
+            <div class="meta">Posted on October 1, 2025 by Rev. Dr. James Smith</div>
+
+            <div class="article-body">
+                <p>Beloved family,</p>
+                <p>As we enter this new season, I am reminded of the words of the Apostle Paul... [Placeholder for
+                    editorial content]</p>
+                <p>It is easy to become distracted by the noise of the world, but we are called to a higher purpose. Our
+                    community needs us now more than ever to be the hands and feet of Jesus. Let us commit this month to
+                    recommitting ourselves to service and prayer.</p>
+                <p>I look forward to seeing each of you this Sunday. Bring a friend, and let us worship the Lord
+                    together in spirit and in truth.</p>
+
+                <div class="pastor-sig">
+                    Yours in Christ,<br>
+                    Rev. Dr. James Smith
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; <span id="current-year"></span> Mt. Zion MBC.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
