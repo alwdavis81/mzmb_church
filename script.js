@@ -41,11 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Async function handles the "waiting" automatically without freezing the page
     async function loadEditorial() {
         if (!editorialContainer || SPACE_ID === 'YOUR_SPACE_ID_HERE') return;
+        
+        // SELECT ELEMENTS
+        const loader = document.getElementById('editorial-loader');
+        const contentWrapper = document.getElementById('editorial-content-wrapper');
+
+        // 1. SHOW LOADING STATE
+        // We hide the "Welcome" message and show the spinner while we check for updates
+        if (loader && contentWrapper) {
+            loader.style.display = 'block';
+            contentWrapper.style.opacity = '0.5'; // Dim the old content slightly
+        }
 
         const url = `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/master/entries?access_token=${ACCESS_TOKEN}&content_type=${CONTENT_TYPE}&limit=1&order=-sys.createdAt`;
 
         try {
-            // 'await' waits for the data to arrive, but lets the rest of the page keep running
+            // 'await' waits for the data to arrive
             const response = await fetch(url);
             const data = await response.json();
 
@@ -72,8 +83,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             }
         } catch (error) {
-            // If fetching fails, the user simply sees the default "Welcome" message (Graceful Fallback)
+            // If fetching fails, we keep the default "Welcome" message
             console.error('Error fetching editorial:', error);
+        } finally {
+            // 2. REMOVE LOADING STATE
+            // Whether it succeeded or failed, turn off the spinner and bring back the content
+            if (loader && contentWrapper) {
+                loader.style.display = 'none';
+                contentWrapper.style.opacity = '1';
+            }
         }
     }
 
