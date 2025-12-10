@@ -251,17 +251,7 @@ ul {
         z-index: 999;
     }
 
-    /* Re-add button inside mobile menu via JS or just simple link? 
-       Actually, since I removed the button from the list in HTML, 
-       I need to ensure the mobile menu still has a way to get to Giving.
-       I will handle this by adding a specific mobile-only link in the HTML or 
-       just accepting that 'desktop-only' hides it and I need to add it back 
-       to the list for mobile only. 
-       
-       Better approach: I removed it from the UL in the batch script. 
-       I should add a "Giving" link back to the list that is MOBILE ONLY? 
-       Or just keep it simple.
-    */
+
 }
 
 
@@ -445,12 +435,28 @@ ul {
     /* Prevent wrapping on small screens */
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 3rem;
-    /* Spacing between links */
+/* Mobile Logo Adjustments */
+@media (max-width: 768px) {
+    .logo {
+        flex-direction: column;
+        gap: 0.2rem;
+        text-align: center;
+    }
+
+    .logo span {
+        font-size: 0.9rem;
+        /* Smaller text on mobile */
+    }
+
+    .nav-container {
+        padding: 0.5rem 1rem;
+        /* Adjust padding if needed */
+        /* Let height be flexible or ensure it fits */
+        height: auto;
+        min-height: 70px;
+    }
 }
+
 
 /* Events Preview */
 .section-events-preview {
