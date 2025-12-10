@@ -425,17 +425,24 @@ ul {
 .logo {
     display: flex;
     align-items: center;
+    gap: 0.75rem;
+    /* Space between image and text */
+    text-decoration: none;
+    /* Ensure no underline on text */
 }
 
 .logo img {
     height: 40px;
-    /* Reduced from 50px */
     width: auto;
 }
 
-/* Hide text link decoration if wrapper */
-a.logo {
-    text-decoration: none;
+.logo span {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    white-space: nowrap;
+    /* Prevent wrapping on small screens */
 }
 
 .nav-links {
