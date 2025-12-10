@@ -34,43 +34,50 @@ document.addEventListener('DOMContentLoaded', () => {
     /*
     const SPACE_ID = 'YOUR_SPACE_ID_HERE';
     const ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN_HERE';
-    const CONTENT_TYPE = 'editorial'; // The ID of your content model
+    const CONTENT_TYPE = 'editorial'; 
 
     const editorialContainer = document.querySelector('.editorial-content');
 
-    if (editorialContainer && SPACE_ID !== 'YOUR_SPACE_ID_HERE') {
+    // Async function handles the "waiting" automatically without freezing the page
+    async function loadEditorial() {
+        if (!editorialContainer || SPACE_ID === 'YOUR_SPACE_ID_HERE') return;
+
         const url = `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/master/entries?access_token=${ACCESS_TOKEN}&content_type=${CONTENT_TYPE}&limit=1&order=-sys.createdAt`;
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                if (data.items.length > 0) {
-                    const post = data.items[0].fields;
-                    
-                    // Update DOM
-                    document.getElementById('editorial-title').textContent = post.title;
-                    
-                    // Format Date
-                    const dateObj = new Date(post.date);
-                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                    document.getElementById('editorial-date').textContent = `Posted on ${dateObj.toLocaleDateString('en-US', options)}`;
-                    
-                    if (post.author) {
-                        document.getElementById('editorial-author').textContent = `by ${post.author}`;
-                    }
+        try {
+            // 'await' waits for the data to arrive, but lets the rest of the page keep running
+            const response = await fetch(url);
+            const data = await response.json();
 
-                    // Handle Body (Assuming simple text / markdown, for Rich Text you'd need a renderer)
-                    // This creates paragraphs from newlines
-                    const bodyHtml = post.body.split('\n').map(para => `<p>${para}</p>`).join('');
-                    document.getElementById('editorial-body').innerHTML = bodyHtml + `
-                        <div class="pastor-sig">
-                            Yours in His Service,<br>
-                            ${post.author || 'Rev. Dr. James Smith'}
-                        </div>
-                    `;
+            if (data.items.length > 0) {
+                const post = data.items[0].fields;
+                
+                // Content arrived! Now we update the HTML (swapping the placeholder)
+                document.getElementById('editorial-title').textContent = post.title;
+                
+                const dateObj = new Date(post.date);
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById('editorial-date').textContent = `Posted on ${dateObj.toLocaleDateString('en-US', options)}`;
+                
+                if (post.author) {
+                    document.getElementById('editorial-author').textContent = `by ${post.author}`;
                 }
-            })
-            .catch(error => console.error('Error fetching editorial:', error));
+
+                const bodyHtml = post.body.split('\n').map(para => `<p>${para}</p>`).join('');
+                document.getElementById('editorial-body').innerHTML = bodyHtml + `
+                    <div class="pastor-sig">
+                        Yours in His Service,<br>
+                        ${post.author || 'Rev. Dr. James Smith'}
+                    </div>
+                `;
+            }
+        } catch (error) {
+            // If fetching fails, the user simply sees the default "Welcome" message (Graceful Fallback)
+            console.error('Error fetching editorial:', error);
+        }
     }
+
+    // Call the function
+    loadEditorial();
     */
 });
