@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle (Cream/OldLace) -->
+  <circle cx="100" cy="100" r="95" fill="#FDF5E6" stroke="#8B4513" stroke-width="5"/>
+  
+  <!-- Outer Gold Ring -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#DAA520" stroke-width="2"/>
+
+  <!-- Mountain Base (SaddleBrown) -->
+  <path d="M20 160 L100 60 L180 160 Z" fill="#8B4513" />
+  
+  <!-- Snow Cap / Highlights (White transparent) -->
+  <path d="M100 60 L75 90 L85 95 L100 75 L115 95 L125 90 Z" fill="rgba(255,255,255,0.8)" />
+
+  <!-- The Cross (Gold) -->
+  <rect x="92" y="30" width="16" height="100" fill="#DAA520" stroke="#5c2e0e" stroke-width="1"/>
+  <rect x="76" y="55" width="48" height="16" fill="#DAA520" stroke="#5c2e0e" stroke-width="1"/>
+  
+  <!-- Text - Top Arc -->
+  <path id="curveTop" d="M 40 100 A 60 60 0 0 1 160 100" fill="transparent"/>
+  <text width="200" text-anchor="middle" font-family="'Merriweather', serif" font-weight="bold" font-size="16" fill="#8B4513">
+    <textPath href="#curveTop" startOffset="50%">MT. ZION</textPath>
+  </text>
+  
+  <!-- Text - Bottom (Est. 1925) -->
+  <text x="100" y="175" text-anchor="middle" font-family="'Merriweather', serif" font-weight="bold" font-size="14" fill="#8B4513">
+    EST. 1925
+  </text>
+  
+  <!-- "MBC" Text overlaid on mountain if needed, or just keep distinct. Let's put text cleaner. -->
+</svg>

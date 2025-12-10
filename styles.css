@@ -491,3 +491,23 @@ ul {
         display: block;
     }
 }
+
+/* Page Headers (Global) */
+.page-header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-md);
+}
+
+.page-header h1 {
+    color: white;
+    margin-bottom: var(--spacing-xs);
+}
+
+.page-header p {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    opacity: 0.9;
+}
