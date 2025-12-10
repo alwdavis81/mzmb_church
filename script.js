@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (loader && contentWrapper) {
             loader.style.display = 'block';
             contentWrapper.style.opacity = '0.5'; // Dim the old content slightly
+            contentWrapper.setAttribute('aria-busy', 'true'); // Tell screen readers we are working
         }
 
         const url = `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/master/entries?access_token=${ACCESS_TOKEN}&content_type=${CONTENT_TYPE}&limit=1&order=-sys.createdAt`;
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loader && contentWrapper) {
                 loader.style.display = 'none';
                 contentWrapper.style.opacity = '1';
+                contentWrapper.setAttribute('aria-busy', 'false'); // Work is done
             }
         }
     }
