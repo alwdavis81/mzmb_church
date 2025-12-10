@@ -403,6 +403,48 @@ ul {
     margin-bottom: var(--spacing-xs);
 }
 
+/* Navigation */
+.navbar {
+    background-color: white;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    /* Reduced vertical padding */
+    height: 70px;
+    /* Reduced fixed height */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    /* Reduced from 50px */
+    width: auto;
+}
+
+/* Hide text link decoration if wrapper */
+a.logo {
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    /* Spacing between links */
+}
+
 /* Events Preview */
 .section-events-preview {
     background-color: var(--color-background);
