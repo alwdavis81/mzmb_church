@@ -84,7 +84,8 @@ ul {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-sm);
+    padding: 0 1.5rem;
+    /* Increased from 1rem for better mobile spacing */
 }
 
 .text-center {
