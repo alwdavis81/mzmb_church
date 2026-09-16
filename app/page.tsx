@@ -62,7 +62,10 @@ export default function HomePage() {
         <div className="container">
           <div style={{ display: "grid", gap: "3rem", alignItems: "center", position: "relative", zIndex: 1 }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "3rem", alignItems: "center" }}>
-              <motion.div {...fadeUp(0)} style={{ maxWidth: "580px" }}>
+              <motion.div
+                {...fadeUp(0)}
+                style={{ maxWidth: "580px", textAlign: "center", margin: "0 auto" }}
+              >
                 <span
                   style={{
                     display: "inline-block",
@@ -84,10 +87,10 @@ export default function HomePage() {
                     Mt. Zion
                   </span>
                 </h1>
-                <p style={{ fontSize: "clamp(1.1rem, 2vw, 1.35rem)", color: "rgba(255,255,255,0.8)", maxWidth: "480px", fontWeight: 400, lineHeight: 1.6, marginBottom: "2rem" }}>
+                <p style={{ fontSize: "clamp(1.1rem, 2vw, 1.35rem)", color: "rgba(255,255,255,0.8)", maxWidth: "480px", margin: "0 auto 2rem", fontWeight: 400, lineHeight: 1.6 }}>
                   &ldquo;Exalting the Savior, Equipping the Saint, Evangelizing the Sinner.&rdquo;
                 </p>
-                <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
                   <Link href="/visit" className="btn btn-gold" style={{ padding: "0.85rem 2rem", fontSize: "1rem" }}>
                     Join Us This Sunday <ArrowRight size={18} />
                   </Link>
@@ -99,6 +102,7 @@ export default function HomePage() {
 
               <motion.div
                 {...fadeUp(0.15)}
+                className="desktop-only"
                 style={{ borderRadius: "var(--radius-xl)", overflow: "hidden", boxShadow: "var(--shadow-deep)", aspectRatio: "4/3" }}
               >
                 <Image
