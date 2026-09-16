@@ -82,7 +82,7 @@ export default function HomePage() {
                   Warmly Welcoming You
                 </span>
                 <h1 style={{ fontSize: "clamp(2.5rem, 6vw, 4rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.04em", marginBottom: "1.5rem", color: "white" }}>
-                  Welcome to{" "}
+                  Welcome to<br />
                   <span className="text-gradient" style={{ WebkitTextFillColor: "transparent", WebkitBackgroundClip: "text" }}>
                     Mt. Zion
                   </span>

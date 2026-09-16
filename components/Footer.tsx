@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer style={{ backgroundColor: "var(--color-primary)", color: "white", paddingTop: "4rem", paddingBottom: "2rem" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1.5rem" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "3rem", marginBottom: "3rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "3rem", marginBottom: "3rem" }} className="footer-grid">
           {/* Church Info */}
           <div>
             <h4 style={{ color: "var(--color-secondary)", marginBottom: "1.25rem", fontSize: "1.15rem", fontWeight: 700 }}>
