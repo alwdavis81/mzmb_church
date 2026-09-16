@@ -41,7 +41,7 @@ export default function EmergencyBanner() {
   if (!banner?.active || !banner?.text || dismissed) return null;
 
   return (
-    <div style={{ backgroundColor: banner.bgColor || "#DC2626", color: "white", overflow: "hidden", position: "sticky", top: 0, zIndex: 51, height: "2.5rem" }}>
+    <div style={{ backgroundColor: banner.bgColor || "#DC2626", color: "white", overflow: "hidden", position: "sticky", top: 0, zIndex: 50, height: "2.5rem" }}>
       <div ref={scrollRef} style={{ whiteSpace: "nowrap", lineHeight: "2.5rem", fontSize: "0.9rem", paddingRight: "2rem", willChange: "transform" }}>
         <span style={{ margin: "0 2rem" }}>{banner.text}</span>
         {banner.linkUrl && banner.linkLabel && (
