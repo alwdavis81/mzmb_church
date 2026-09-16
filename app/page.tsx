@@ -168,21 +168,20 @@ export default function HomePage() {
           </div>
 
           <div className="grid-asymmetric">
-            <div className="card" style={{ background: "var(--color-primary-light)", padding: "2.5rem", borderRadius: "var(--radius-lg)", border: "1px solid rgba(200,159,94,0.15)" }}>
+            <div className="card" style={{ background: "var(--color-primary-light)", padding: "2.5rem", borderRadius: "var(--radius-lg)", border: "1px solid rgba(200,159,94,0.15)", textAlign: "center" }}>
               <Church size={32} style={{ color: "var(--color-secondary)", marginBottom: "1rem" }} />
               <h3 style={{ color: "white", fontSize: "1.75rem", marginBottom: "0.75rem" }}>Sunday Worship</h3>
               <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>Our main worship service is a time of powerful praise and preaching of God&rsquo;s Word.</p>
               <p style={{ color: "var(--color-secondary)", fontWeight: 700, marginTop: "1rem" }}>Every Sunday @ 11:00 AM</p>
             </div>
 
-            <div className="card" style={{ padding: "1.5rem", borderRadius: "var(--radius-lg)" }}>
+            <div className="card" style={{ padding: "1.5rem", borderRadius: "var(--radius-lg)", textAlign: "center" }}>
               <BookOpen size={24} style={{ color: "var(--color-secondary)", marginBottom: "0.75rem" }} />
               <h3>Sunday School</h3>
               <p style={{ color: "var(--color-text-muted)" }}>Deepen your understanding of Scripture.</p>
               <p style={{ color: "var(--color-secondary)", fontWeight: 700, marginTop: "0.75rem" }}>9:30 AM</p>
             </div>
-
-            <div className="card" style={{ padding: "1.5rem", borderRadius: "var(--radius-lg)" }}>
+<div className="card" style={{ padding: "1.5rem", borderRadius: "var(--radius-lg)", textAlign: "center" }}>
               <Music size={24} style={{ color: "var(--color-secondary)", marginBottom: "0.75rem" }} />
               <h3>Bible Study</h3>
               <p style={{ color: "var(--color-text-muted)" }}>Mid-week spiritual refreshing.</p>
