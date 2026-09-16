@@ -59,7 +59,7 @@ export default function ContactPage() {
       </header>
 
       <main className="container section">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginTop: "3rem" }}>
+        <div className="grid-2" style={{ gap: "1.5rem", marginTop: "3rem" }}>
           <section>
             <h2>Get in Touch</h2>
             <p style={{ marginBottom: "2rem", color: "var(--color-text-muted)" }}>Have questions or need prayer? Reach out to us or visit us this Sunday.</p>
