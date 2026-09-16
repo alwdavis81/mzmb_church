@@ -554,11 +554,26 @@ section { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
 @media (min-width: 768px) { .mobile-only { display: none !important; } }
 @media (max-width: 767px) { .desktop-only { display: none !important; } }
 @media (max-width: 767px) {
-  .card-body, .event-card .card-body { text-align: center; }
+  .card-body, .event-card .card-body,
+  article > div:last-child,
+  .event-card > div:last-child,
+  .grid-2 > * > div:last-child,
+  .grid-3 > * > div:last-child,
+  section .grid-2 > * > div:last-child,
+  section .grid-3 > * > div:last-child { text-align: center; }
+
+  /* Center flex rows inside card bodies */
+  .card-body [style*="flex"], article > div:last-child [style*="flex"],
+  .grid-2 > * > div:last-child [style*="flex"] { justify-content: center !important; }
+
+  /* Center buttons inside card bodies */
+  .card-body a[class*="btn"], article > div:last-child a[class*="btn"],
+  .grid-2 > * > div:last-child a[class*="btn"] { margin: 0 auto; }
+
   .footer-grid { text-align: center; }
   .footer-grid > * { align-items: center; }
   .footer-grid [style*="flex"] { justify-content: center !important; align-items: center !important; }
-  .footer-grid a[href="/giving"], .footer-grid a[href^="/giving"] { align-self: center !important; }
+  .footer-grid a[href^="/giving"] { align-self: center !important; }
 }
 
 /* ========================================================================
