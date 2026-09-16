@@ -4,16 +4,19 @@ import { useState } from "react";
 
 export default function PrayerPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const request = formData.get("prayerRequest")?.toString().trim();
+    const prayerRequest = formData.get("prayerRequest")?.toString().trim() ?? "";
+    const name = formData.get("prayerName")?.toString().trim() ?? "";
+    const anonymous = formData.get("anonymous") === "on";
 
     const newErrors: Record<string, string> = {};
-    if (!request) newErrors.prayerRequest = "Please share your prayer request.";
+    if (!prayerRequest) newErrors.prayerRequest = "Please share your prayer request.";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -21,7 +24,21 @@ export default function PrayerPage() {
     }
 
     setErrors({});
-    setSubmitted(true);
+    setSending(true);
+
+    try {
+      const res = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "prayer", name: anonymous ? "" : name, prayerRequest, anonymous }),
+      });
+      if (res.ok) setSubmitted(true);
+      else alert("Failed to submit. Please try again later.");
+    } catch {
+      alert("Network error. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -87,8 +104,8 @@ export default function PrayerPage() {
                     <span style={{ color: "var(--color-text-muted)", fontSize: "0.9rem" }}>Keep this prayer request anonymous</span>
                   </label>
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ padding: "0.85rem 2rem", backgroundColor: "var(--color-primary)", color: "white", border: "none", borderRadius: "12px", fontWeight: 600, cursor: "pointer", fontSize: "1rem" }}>
-                  Submit Prayer Request
+                <button type="submit" className="btn btn-primary" disabled={sending} style={{ padding: "0.85rem 2rem", backgroundColor: "var(--color-primary)", color: "white", border: "none", borderRadius: "12px", fontWeight: 600, cursor: "pointer", fontSize: "1rem", opacity: sending ? 0.7 : 1 }}>
+                  {sending ? "Submitting..." : "Submit Prayer Request"}
                 </button>
               </form>
             )}

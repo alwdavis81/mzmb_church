@@ -5,16 +5,18 @@ import { useState } from "react";
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [sending, setSending] = useState(false);
 
-  const validate = (e: React.FormEvent<HTMLFormElement>) => {
+  const validate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const newErrors: Record<string, string> = {};
-    const name = formData.get("name")?.toString().trim();
-    const email = formData.get("email")?.toString().trim();
-    const message = formData.get("message")?.toString().trim();
+    const name = formData.get("name")?.toString().trim() ?? "";
+    const email = formData.get("email")?.toString().trim() ?? "";
+    const subject = formData.get("subject")?.toString().trim() ?? "";
+    const message = formData.get("message")?.toString().trim() ?? "";
 
+    const newErrors: Record<string, string> = {};
     if (!name) newErrors.name = "Please enter your name.";
     if (!email) newErrors.email = "Please enter your email.";
     else if (!email.includes("@")) newErrors.email = "Please enter a valid email address.";
@@ -26,7 +28,21 @@ export default function ContactPage() {
     }
 
     setErrors({});
-    setSubmitted(true);
+    setSending(true);
+
+    try {
+      const res = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "contact", name, email, subject, message }),
+      });
+      if (res.ok) setSubmitted(true);
+      else alert("Failed to send. Please try again later.");
+    } catch {
+      alert("Network error. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -115,7 +131,8 @@ export default function ContactPage() {
                   <textarea id="message" name="message" rows={5} required aria-describedby={errors.message ? "message-error" : undefined} style={{ width: "100%", padding: "0.8rem", border: errors.message ? "2px solid #ef4444" : "1px solid #ccc", borderRadius: "4px", fontFamily: "inherit" }} />
                   {errors.message && <p id="message-error" role="alert" style={{ color: "#ef4444", fontSize: "0.85rem", marginTop: "0.25rem" }}>{errors.message}</p>}
                 </div>
-                <button type="submit" className="btn btn-primary">Send Message</button>
+                <button type="submit" className="btn btn-primary" disabled={sending} style={{ opacity: sending ? 0.7 : 1 }}>
+                {sending ? "Sending..." : "Send Message"}</button>
               </form>
             )}
           </section>

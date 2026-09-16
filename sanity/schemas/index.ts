@@ -8,6 +8,8 @@ import leader from "./leader";
 import editorial from "./editorial";
 import ministry from "./ministry";
 import visitorPage from "./visitorPage";
+import contactSubmission from "./contactSubmission";
+import prayerRequest from "./prayerRequest";
 import siteSettings from "./siteSettings";
 
 export const schemaTypes = [
@@ -22,4 +24,6 @@ export const schemaTypes = [
   ministry,
   visitorPage,
   siteSettings,
+contactSubmission,
+  prayerRequest,
 ];
