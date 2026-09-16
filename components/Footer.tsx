@@ -107,6 +107,7 @@ export default function Footer() {
           fontSize: "0.85rem",
         }}>
           <p>Made with ❤️ in Michigan &nbsp;|&nbsp; &copy; {currentYear} Mt. Zion Missionary Baptist Church. All Rights Reserved.</p>
+          <Link href="/studio" style={{ color: "rgba(255,255,255,0.2)", textDecoration: "none", fontSize: "0.75rem", marginTop: "0.75rem", display: "inline-block" }}>CMS Login</Link>
         </div>
       </div>
     </footer>

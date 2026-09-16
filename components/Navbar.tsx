@@ -64,7 +64,8 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={"navbar" + (isScrolled ? " navbar--scrolled" : "")} aria-label="Main navigation">
+    <nav className={"navbar" + (isScrolled ? " navbar--scrolled" : "")} aria-label="Main navigation"
+      style={{ position: "sticky", top: 0, zIndex: 50 }}>
       <div className="nav-container">
         <Link href="/" className="logo">
           <Image src="/assets/logo.svg" alt="Mt. Zion MBC Logo" width={32} height={32} style={{ height: "32px", width: "auto" }} />
