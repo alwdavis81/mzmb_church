@@ -41,12 +41,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-<EmergencyBanner />
-<SanityLive />
+        <EmergencyBanner />
+        <SanityLive />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <Navbar />
         <Breadcrumbs />
-<SanityLive />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
